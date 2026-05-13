@@ -8,18 +8,31 @@ public class CoreHealth : MonoBehaviour
     void Awake()
     {
         hp = maxHp;
+        GameVisuals.StyleCore(transform);
         Debug.Log($"CORE HP: {hp}");
+
+        if (GameManager.Instance != null)
+            GameManager.Instance.UpdateCoreHealth(hp, maxHp);
     }
 
     public void Damage(int amount)
     {
+        if (hp <= 0) return;
+
         hp -= amount;
         Debug.Log($"CORE HIT! HP: {hp}");
+
+        if (GameManager.Instance != null)
+            GameManager.Instance.UpdateCoreHealth(hp, maxHp);
 
         if (hp <= 0)
         {
             Debug.Log("GAME OVER");
-            Time.timeScale = 0f;
+
+            if (GameManager.Instance != null)
+                GameManager.Instance.GameOver();
+            else
+                Time.timeScale = 0f;
         }
     }
 

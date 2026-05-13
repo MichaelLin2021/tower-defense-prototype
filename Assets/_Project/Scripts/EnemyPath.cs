@@ -8,9 +8,12 @@ public class EnemyPath : MonoBehaviour
     int currentWaypoint = 0;
     float baseY = 0.5f;
 
+    public bool FinishedPath => waypoints != null && currentWaypoint >= waypoints.Length;
+
     void Update()
     {
-        if (currentWaypoint >= waypoints.Length) return;
+        if (waypoints == null || waypoints.Length == 0) return;
+        if (FinishedPath) return;
 
         Transform target = waypoints[currentWaypoint];
 

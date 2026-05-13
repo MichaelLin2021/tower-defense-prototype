@@ -18,8 +18,6 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Bullet hit: " + other.name);
-
         Health hp = other.GetComponent<Health>();
 
         if (hp != null)

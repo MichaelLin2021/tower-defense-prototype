@@ -148,5 +148,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c5afae5c7a34551bb3beb4082f7f77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SimpleTower
-  damage: 4
-  fireInterval: 0.5
+  damage: 5
+  fireInterval: 0.45

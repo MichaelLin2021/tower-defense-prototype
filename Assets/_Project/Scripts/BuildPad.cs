@@ -7,6 +7,11 @@ public class BuildPad : MonoBehaviour
 
     private GameObject currentTower;
 
+    void Awake()
+    {
+        GameVisuals.StyleBuildPad(transform, towerCost);
+    }
+
     // Call this from a raycast click system or keep OnMouseDown if it works
     public void TryBuild()
     {

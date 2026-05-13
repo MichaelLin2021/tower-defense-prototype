@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        GameVisuals.StylePlayer(transform);
     }
 
     void Update()

@@ -9,6 +9,11 @@ public class SimpleTower : MonoBehaviour
     private readonly List<Health> targets = new();
     private float timer;
 
+    void Start()
+    {
+        GameVisuals.StyleTower(transform, damage, fireInterval);
+    }
+
     void Update()
     {
         timer -= Time.deltaTime;
@@ -34,11 +39,9 @@ public class SimpleTower : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-    Debug.Log("Tower entered by: " + other.name);
-
-    Health hp = other.GetComponent<Health>();
-    if (hp != null && !targets.Contains(hp))
-        targets.Add(hp);
+        Health hp = other.GetComponent<Health>();
+        if (hp != null && !targets.Contains(hp))
+            targets.Add(hp);
     }
 
     void OnTriggerExit(Collider other)
